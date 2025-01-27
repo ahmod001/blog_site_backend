@@ -17,7 +17,7 @@ class UserObserver
 
     public function saving(User $user): void
     {
-        $user->slug = Str::slug($user->name, '-');
+        $user->slug = create_slug($user, $user->name);
     }
 
     /**

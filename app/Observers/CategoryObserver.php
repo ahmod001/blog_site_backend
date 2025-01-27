@@ -26,7 +26,7 @@ class CategoryObserver
 
     public function saving(Category $category)
     {
-        $category->slug = Str::slug($category->name);
+        $category->slug = create_slug($category, $category->title);
     }
 
     /**

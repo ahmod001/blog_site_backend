@@ -19,7 +19,7 @@ trait Response
     protected function failed($msg = 'Request failed', $code = 400): JsonResponse
     {
         return response()->json([
-            'status' => 'success',
+            'status' => 'failed',
             'message' => $msg,
         ], $code);
     }

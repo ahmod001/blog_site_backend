@@ -32,9 +32,9 @@ class CategoryObserver
     /**
      * Handle the Category "deleted" event.
      */
-    public function deleted(Category $category): void
+    public function deleting(Category $category): void
     {
-        //
+        $category->posts()->delete();
     }
 
     /**

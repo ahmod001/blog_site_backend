@@ -103,7 +103,9 @@ class UserController extends Controller
 
     public function postsByAuthor(User $user)
     {
-        $posts = $user->posts()->pagination();
+        $posts = $user->posts()->with('category', function ($query) {
+            return $query->select('id', 'title', 'slug');
+        })->pagination();
 
         return $this->success(data: [
             'author' => $user,

@@ -21,7 +21,9 @@ class CategoryController extends Controller
 
     public function postsByCategory(Category $category)
     {
-        $post = $category->posts()->pagination();
+        $post = $category->posts()->with('author',function($query){
+            return $query->select('id','name', 'slug');
+        })->pagination();
 
         return $this->success(data: ['category' => $category, 'posts' => $post]);
     }

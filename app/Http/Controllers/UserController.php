@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use App\Traits\Response;
 use Exception;
@@ -96,5 +97,17 @@ class UserController extends Controller
         }
 
         return $this->failed('Unauthorized', 401);
+    }
+
+
+
+    public function postsByAuthor(User $user)
+    {
+        $posts = $user->posts()->pagination();
+
+        return $this->success(data: [
+            'author' => $user,
+            'posts' => $posts
+        ]);
     }
 }

@@ -18,6 +18,13 @@ class CategoryController extends Controller
         $categories = Category::all();
         return $this->success(data: $categories);
     }
+
+    public function postsByCategory(Category $category)
+    {
+        $post = $category->posts()->pagination();
+
+        return $this->success(data: ['category' => $category, 'posts' => $post]);
+    }
     /**
      * Store a newly created resource in storage.
      */

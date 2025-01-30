@@ -16,6 +16,7 @@ class Category extends Model
 
     protected $guarded = ['slug'];
 
+    protected $hidden = ['updated_at', 'created_at'];
 
     public function posts()
     {

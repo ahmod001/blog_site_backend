@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\User;
 use App\Traits\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -28,18 +26,18 @@ class PostController extends Controller
         $validation = Validator::make($request->all(), [
             'title' => 'required|string',
             'content' => 'required|string',
-            'is_published' => 'boolean',
-            'category_id' => 'required',
+            'published' => 'boolean',
+            'category_id' => 'required|integer',
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json($validation->errors(),422);
         }
 
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
-            'is_published' => $request->published,
+            'published' => $request->published,
             'category_id' => $request->category_id,
             'author_id' => $request->user()->id(),
         ]);
@@ -65,15 +63,15 @@ class PostController extends Controller
         $validation = Validator::make($request->all(), [
             'title' => 'required|string',
             'content' => 'required|string',
-            'is_published' => 'boolean',
-            'category_id' => 'required',
+            'published' => 'boolean',
+            'category_id' => 'required|integer',
         ]);
 
 
         if (!$post->is_authorized($user->id))
             return $this->failed('Unauthorized', 401);
         if ($validation->fails())
-            return response()->json($validation->errors());
+            return response()->json($validation->errors(),422);
 
         $post->update($request->all());
         return $this->success('Post updated successfully');

@@ -16,7 +16,7 @@ class Post extends Model
         'updated_at'
     ];
 
-    protected $appends=['published_at'];
+    protected $appends = ['published_at'];
 
     protected static function boot(): void
     {
@@ -54,7 +54,19 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function author(){
+    public function author()
+    {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+
+
+    /**
+     * Check if the post is authorized by the user to perform mutations
+     * 
+     */
+    public function is_authorized(int $user_id): bool
+    {
+        return $this->attributes['author_id'] === $user_id;
     }
 }

@@ -52,7 +52,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return $this->success(data: $post);
     }
 
     /**
@@ -60,14 +60,35 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $user = $request->user();
+
+        $validation = Validator::make($request->all(), [
+            'title' => 'required|string',
+            'content' => 'required|string',
+            'is_published' => 'boolean',
+            'category_id' => 'required',
+        ]);
+
+
+        if (!$post->is_authorized($user->id))
+            return $this->failed('Unauthorized', 401);
+        if ($validation->fails())
+            return response()->json($validation->errors());
+
+        $post->update($request->all());
+        return $this->success('Post updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
-        //
+        if (!$post->is_authorized($request->user()->id))
+            return $this->failed('Unauthorized', 401);
+
+        $post->delete();
+
+        return $this->success('Post deleted successfully');
     }
 }

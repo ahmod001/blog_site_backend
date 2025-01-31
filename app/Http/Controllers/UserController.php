@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\User;
 use App\Traits\Response;
 use Exception;
@@ -90,7 +88,7 @@ class UserController extends Controller
     public function logout(Request $request)
     {
         $user = $request->user();
-
+        
         if ($user) {
             $user->tokens()->delete();
             return $this->success();

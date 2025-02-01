@@ -59,7 +59,10 @@ class Post extends Model
         return $this->belongsTo(User::class, 'author_id');
     }
 
-
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     /**
      * Check if the post is authorized by the user to perform mutations

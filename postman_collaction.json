@@ -1,0 +1,1228 @@
+{
+	"info": {
+		"_postman_id": "64588a1a-dd94-4422-b500-81b32b914c88",
+		"name": "Blog Site",
+		"description": "Its a simple REST API application for publishing Blogs.\n\n- user can REGISTER themselves,\n    \n- Publish Blogs\n    \n- Read Blogs published by other & interact with them.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29492560"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Ahmod Hasan\",\r\n    \"password\":\"hello world\",\r\n    \"email\":\"ahmod.hasan@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|2BnPYexTf234V5ALzIxcZcx5qHdBKoOpGrut3FZ4396a00c0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/user",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jan 2025 06:14:33 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jan 2025 06:14:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X3c6b607edd59db41e55039b9683efcf1"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Request successful\",\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"Ahmod Hasan\",\n        \"email\": \"ahmod.hasan@outlook.com\",\n        \"slug\": \"ahmod-hasan\",\n        \"created_at\": \"2025-01-28T06:08:31.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|2BnPYexTf234V5ALzIxcZcx5qHdBKoOpGrut3FZ4396a00c0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ahmod.hasan@outlook.com\",\r\n    \"password\":\"hello world\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jan 2025 06:24:21 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jan 2025 06:24:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xc788718ed286abd9d344a8b7cb2e7be3"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Request successful\",\n    \"data\": {\n        \"token\": \"2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04\",\n        \"user\": {\n            \"id\": 6,\n            \"name\": \"Ahmod Hasan\",\n            \"email\": \"ahmod.hasan@outlook.com\",\n            \"slug\": \"ahmod-hasan\",\n            \"created_at\": \"2025-01-28T06:08:31.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|2BnPYexTf234V5ALzIxcZcx5qHdBKoOpGrut3FZ4396a00c0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jan 2025 06:26:31 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Jan 2025 06:26:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X706185e450764d0231fcec239ac8cd52"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Request successful\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "Simple Authanticaton system, nothing Fancy!\n\n- Login\n    \n- Register\n    \n- Logout\n    \n- User"
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Popular\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/categories",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jan 2025 05:19:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jan 2025 05:19:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xba11356a51ebb2b91ef9ba23f31ff9eb"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Category created successfully\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "categories/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/categories/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/categories/7",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"categories",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jan 2025 05:22:14 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jan 2025 05:22:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xa88f0314975feab8d4959d7a9e053bec"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Category deleted successfully\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "categories/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Popular\",\r\n    \"description\": \"Hello world\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/categories/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Popular\",\r\n    \"description\": \"Hello world\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/categories/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"categories",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jan 2025 05:24:47 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jan 2025 05:24:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X54d805d1e0984b4b6c2fd4a30dc55453"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Category updated successfully\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "Post Category **CRUID**"
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "authors/{slug}/posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/authors/prof-lenora-cruickshank-v/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"prof-lenora-cruickshank-v",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/authors/prof-lenora-cruickshank-v/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"authors",
+										"prof-lenora-cruickshank-v",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jan 2025 15:56:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Jan 2025 15:56:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X9d0f5cd431953fb92e4a6ffa68d77b68"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Request successful\",\n    \"data\": {\n        \"author\": {\n            \"id\": 1,\n            \"name\": \"Prof. Lenora Cruickshank V\",\n            \"email\": \"allan.christiansen@example.com\",\n            \"slug\": \"prof-lenora-cruickshank-v\",\n            \"created_at\": \"2025-01-28T06:08:24.000000Z\"\n        },\n        \"posts\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Quasi vero exercitationem neque molestias velit.\",\n                    \"slug\": \"quasi-vero-exercitationem-neque-molestias-velit\",\n                    \"content\": \"Minima qui facilis velit ut et facilis dolores. Atque ducimus expedita tempore esse reiciendis minus. Quia voluptas consectetur aut enim labore omnis vel.\",\n                    \"published\": 1,\n                    \"author_id\": 1,\n                    \"category_id\": 1,\n                    \"created_at\": \"28 Jan, 2025\",\n                    \"published_at\": \"2 days ago\",\n                    \"category\": {\n                        \"id\": 1,\n                        \"title\": \"Quo culpa similique delectus quis.\",\n                        \"slug\": \"quo-culpa-similique-delectus-quis\"\n                    }\n                },\n                {\n                    \"id\": 2,\n                    \"title\": \"Nihil suscipit et accusamus nam.\",\n                    \"slug\": \"nihil-suscipit-et-accusamus-nam\",\n                    \"content\": \"Cupiditate enim rerum cumque et quam amet mollitia autem. Sint id expedita rerum molestias non. Explicabo temporibus tempore porro doloribus culpa.\",\n                    \"published\": 1,\n                    \"author_id\": 1,\n                    \"category_id\": 1,\n                    \"created_at\": \"28 Jan, 2025\",\n                    \"published_at\": \"2 days ago\",\n                    \"category\": {\n                        \"id\": 1,\n                        \"title\": \"Quo culpa similique delectus quis.\",\n                        \"slug\": \"quo-culpa-similique-delectus-quis\"\n                    }\n                },\n                {\n                    \"id\": 3,\n                    \"title\": \"Quia id vel sapiente quo veritatis assumenda.\",\n                    \"slug\": \"quia-id-vel-sapiente-quo-veritatis-assumenda\",\n                    \"content\": \"Non mollitia fugiat quam omnis nihil consequatur amet. In laboriosam beatae ipsa. Sed accusantium omnis similique voluptates eius non voluptatem dolorem.\",\n                    \"published\": 1,\n                    \"author_id\": 1,\n                    \"category_id\": 1,\n                    \"created_at\": \"28 Jan, 2025\",\n                    \"published_at\": \"2 days ago\",\n                    \"category\": {\n                        \"id\": 1,\n                        \"title\": \"Quo culpa similique delectus quis.\",\n                        \"slug\": \"quo-culpa-similique-delectus-quis\"\n                    }\n                },\n                {\n                    \"id\": 4,\n                    \"title\": \"Rerum sit cumque explicabo molestias velit voluptatibus.\",\n                    \"slug\": \"rerum-sit-cumque-explicabo-molestias-velit-voluptatibus\",\n                    \"content\": \"Et at quis deleniti dolore et iste ab. A cumque molestiae aliquid aut explicabo iure reprehenderit. Ex facilis consequatur voluptatem alias asperiores ratione facere. Excepturi in aut sit aut ut repellendus et.\",\n                    \"published\": 1,\n                    \"author_id\": 1,\n                    \"category_id\": 1,\n                    \"created_at\": \"28 Jan, 2025\",\n                    \"published_at\": \"2 days ago\",\n                    \"category\": {\n                        \"id\": 1,\n                        \"title\": \"Quo culpa similique delectus quis.\",\n                        \"slug\": \"quo-culpa-similique-delectus-quis\"\n                    }\n                },\n                {\n                    \"id\": 5,\n                    \"title\": \"Aliquam sint omnis ducimus quia.\",\n                    \"slug\": \"aliquam-sint-omnis-ducimus-quia\",\n                    \"content\": \"A harum autem cumque vel possimus voluptas. Nisi repudiandae et facilis. Qui qui et inventore aut eos officiis voluptas.\",\n                    \"published\": 1,\n                    \"author_id\": 1,\n                    \"category_id\": 1,\n                    \"created_at\": \"28 Jan, 2025\",\n                    \"published_at\": \"2 days ago\",\n                    \"category\": {\n                        \"id\": 1,\n                        \"title\": \"Quo culpa similique delectus quis.\",\n                        \"slug\": \"quo-culpa-similique-delectus-quis\"\n                    }\n                }\n            ],\n            \"first_page_url\": \"http://127.0.0.1:8000/api/authors/prof-lenora-cruickshank-v/posts?page=1\",\n            \"from\": 1,\n            \"last_page\": 1,\n            \"last_page_url\": \"http://127.0.0.1:8000/api/authors/prof-lenora-cruickshank-v/posts?page=1\",\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/authors/prof-lenora-cruickshank-v/posts?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"next_page_url\": null,\n            \"path\": \"http://127.0.0.1:8000/api/authors/prof-lenora-cruickshank-v/posts\",\n            \"per_page\": 10,\n            \"prev_page_url\": null,\n            \"to\": 5,\n            \"total\": 5\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "categories/{slug}/posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/categories/quo-culpa-similique-delectus-quis/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"quo-culpa-similique-delectus-quis",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Good!\",\r\n    \"post_slug\": \"quasi-vero-exercitationem-neque-molestias-velit\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"Good!\",\r\n    \"post_slug\": \"quasi-vero-exercitationem-neque-molestias-velit\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:16:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:16:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xa26084efb1e48b6bece257ff6497556a"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Comment created successfully\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "comments/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Kochi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/comments/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\":\"Kochi\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:28:18 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:28:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X941c60d1f0fc5ae3148fa027b6333c3d"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Request successful\",\n    \"data\": {\n        \"id\": 1,\n        \"content\": \"Good!\",\n        \"post_id\": 24,\n        \"user_id\": 6,\n        \"created_at\": \"2025-02-02T16:08:20.000000Z\",\n        \"updated_at\": \"2025-02-02T16:08:20.000000Z\",\n        \"user\": {\n            \"id\": 6,\n            \"name\": \"Ahmod Hasan\",\n            \"email\": \"ahmod.hasan@outlook.com\",\n            \"slug\": \"ahmod-hasan\",\n            \"created_at\": \"2025-01-28T06:08:31.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "comments/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Kochi\",\r\n    \"post_slug\":\"quasi-vero-exercitationem-neque-molestias-velit\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/comments/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\":\"Kochi\",\r\n    \"post_slug\":\"quasi-vero-exercitationem-neque-molestias-velit\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:35:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:35:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X6069d07c8b6df1443d68e27e8157c3ba"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Comment updated successfully\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "comments/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|SqRTbugvjrGsevSEpRTddHu5PyJOIeEIlAkJCcV944ee9e04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/comments/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/comments/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:36:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Feb 2025 06:36:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xaee1799a3b031dd8c56cb53e0471caeb"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Comment deleted successfully\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

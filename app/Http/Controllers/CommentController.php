@@ -20,6 +20,11 @@ class CommentController extends Controller
         //
     }
 
+    public function getCommentsByPost(Post $post)
+    {
+        return $this->success(data: $post->load('comments.user:id,slug,name'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */

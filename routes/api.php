@@ -27,5 +27,7 @@ Route::apiResource('categories', CategoryController::class)->except('index')->mi
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
 
+
+Route::get('/posts/{post:slug}/comments', [CommentController::class,'getCommentsByPost']);
 Route::apiResource('comments', CommentController::class)->middleware('auth:sanctum');
 

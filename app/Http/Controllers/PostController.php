@@ -50,7 +50,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return $this->success(data: $post);
+        return $this->success(data: $post->load('author'));
     }
 
     /**

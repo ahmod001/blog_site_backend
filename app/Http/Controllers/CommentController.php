@@ -23,22 +23,29 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,Post $post): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         $validation = Validator::make($request->all(), [
             'content' => 'required',
+            'post_slug' => 'required',
         ]);
 
         if ($validation->fails())
             return response()->json($validation->errors(), 422);
 
-        Comment::create([
-            'content' => $request->content,
-            'post_id' => $post->id,
-            'user_id' => $request->user()->id
-        ]);
+        $post = Post::slug($request->input('post_slug'))->first();
 
-        return $this->success('Comment created successfully');
+        if ($post) {
+            Comment::create([
+                'content' => $request->content,
+                'post_id' => $post->id,
+                'user_id' => $request->user()->id
+            ]);
+
+            return $this->success('Comment created successfully');
+        }
+
+        return $this->failed('No post found', 404);
     }
 
     /**
@@ -46,7 +53,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        return $this->success(data: $comment);
+        return $this->success(data: $comment->load('user'));
     }
 
     /**
@@ -56,7 +63,7 @@ class CommentController extends Controller
     {
         $validation = Validator::make($request->all(), [
             'content' => 'required',
-            'post_id' => 'required|integer',
+            'post_slug' => 'required|string',
         ]);
 
         if ($validation->fails())
@@ -65,11 +72,17 @@ class CommentController extends Controller
         if ($request->user()->id !== $comment->user_id)
             return $this->failed('Unauthorized', 403);
 
-        $comment->update([
-            'content' => $request->content,
-        ]);
 
-        return $this->success('Comment updated successfully');
+        $post = Post::slug($request->input('post_slug'))->first();
+
+        if ($post) {
+            $comment->update([
+                'content' => $request->content,
+            ]);
+
+            return $this->success('Comment updated successfully');
+        }
+        return $this->failed('No post found', 404);
     }
 
     /**

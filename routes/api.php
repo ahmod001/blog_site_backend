@@ -27,5 +27,5 @@ Route::apiResource('categories', CategoryController::class)->except('index')->mi
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
 
-Route::apiResource('posts.comments', CommentController::class)
-    ->shallow()->scoped(['post' => 'slug'])->middleware('auth:sanctum');
+Route::apiResource('comments', CommentController::class)->middleware('auth:sanctum');
+

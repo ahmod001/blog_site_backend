@@ -35,6 +35,10 @@ class Post extends Model
     {
         return $query->paginate($limit);
     }
+    public function scopeSlug($query, string $slug)
+    {
+        return $query->where('slug', 'LIKE', $slug);
+    }
 
 
     public function getPublishedAtAttribute(): string

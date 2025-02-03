@@ -56,25 +56,30 @@ Ensure you have the following installed:
    php artisan serve
    ```
 
-## API Endpoints
+## API Endpoints  
 
-| Method | Endpoint                 | Description                      | Auth Required|
-|--------|--------------------------|----------------------------------|--------------|
-| POST   | `/api/register`          | Register a new user              | No           |
-| POST   | `/api/login`             | Login and get token              | No           |
-| POST   | `/api/logout`            | Logout user                      | Yes          |
-| GET    | `/api/posts`             | Get all blog posts               | No           |
-| POST   | `/api/posts`             | Create a new blog post           | Yes          |
-| GET    | `/api/posts/{id}`        | Get a specific post              | No           |
-| PUT    | `/api/posts/{id}`        | Update a post                    | Yes          |
-| DELETE | `/api/posts/{id}`        | Delete a post                    | Yes          |
-| POST   | `/api/posts/{id}/comment`| Add a comment to a post          | Yes          |
-| GET    | `/api/posts/author/{id}` | Get posts by an author           | No           |
-| GET    | `/api/posts/category/{id}` | Get posts by category          | No           |
-| GET    | `/api/categories`        | Get all categories               | No           |
-| POST   | `/api/categories`        | Create a category                | Yes          |
-| PUT    | `/api/categories/{id}`   | Update a category                | Yes          |
-| DELETE | `/api/categories/{id}`   | Delete a category                | Yes          |
+| Method | Endpoint                     | Description                         | Auth Required |
+|--------|------------------------------|-------------------------------------|--------------|
+| POST   | `/api/users`                 | Register a new user                | No           |
+| POST   | `/api/users/login`           | Login and get token                | No           |
+| GET    | `/api/users/user`            | Get authenticated user details     | Yes          |
+| GET    | `/api/users/logout`          | Logout user                        | Yes          |
+| GET    | `/api/posts`                 | Get all blog posts                 | No           |
+| POST   | `/api/posts`                 | Create a new blog post             | Yes          |
+| GET    | `/api/posts/{id}`            | Get a specific post                | No           |
+| PUT    | `/api/posts/{id}`            | Update a post                      | Yes          |
+| DELETE | `/api/posts/{id}`            | Delete a post                      | Yes          |
+| POST   | `/api/comments`              | Add a comment to a post            | Yes          |
+| GET    | `/api/comments/{id}`         | Get a specific comment             | Yes          |
+| PUT    | `/api/comments/{id}`         | Update a comment                   | Yes          |
+| DELETE | `/api/comments/{id}`         | Delete a comment                   | Yes          |
+| Get    | `/api/posts/{slug}/comments` | Get all comments associated post   | No           |
+| GET    | `/api/authors/{slug}/posts`  | Get posts by an author             | No           |
+| GET    | `/api/categories/{slug}/posts` | Get posts by category            | No           |
+| GET    | `/api/categories`            | Get all categories                 | No           |
+| POST   | `/api/categories`            | Create a category                  | Yes          |
+| PUT    | `/api/categories/{id}`       | Update a category                  | Yes          |
+| DELETE | `/api/categories/{id}`       | Delete a category                  | Yes          |
 
 ## Authentication
 
